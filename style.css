@@ -12,18 +12,11 @@ body {
 
 .toc {
   font-family: Futura, Georgia, sans-serif;
-  /* position: fixed; */
-  min-width: 250px;
-  left: 0;
-  top: 0;
-  /* background-color: white; */
+  min-width: 160px;
   position: sticky;
-  top: 0;
-  border-radius: 4px;
-  /* border: 2px dashed rgb(223, 208, 188); */
-  /* border-left: none; */
-  /* border-right: none; */
-  padding: 2em;
+  padding-top: 1em;
+  top: 1em;
+  padding-left: 0;
 }
 
 .toc li {
@@ -46,11 +39,21 @@ body {
 main {
   line-height: 1.4;
   font-size: 1.2em;
-  max-width: 1200px;
+  max-width: 1700px;
   margin: 0 auto;
-  padding: 2em;
+  padding: 2em 5em;
+  padding-right: 250px;
   display: flex;
   position: relative;
+}
+
+.main-content {
+  max-width: 90ch;
+  /* background-color: #ceccf0; */
+  /* border-radius: 12px; */
+  padding: 0 5em;
+  /* padding: 2em 8em; */
+  margin: 0 auto;
 }
 
 figure {
@@ -63,7 +66,7 @@ figcaption {
 
 img {
   max-width: 100%;
-  border-radius: 4px;
+  border-radius: 6px;
   box-shadow: 0 4px 50px -10px rgba(0, 0, 0, 0.2);
 }
 
@@ -75,7 +78,7 @@ a:hover {
   background: #cb88a34e;
 }
 code {
-  border-radius: 2px;
+  border-radius: 4px;
   background: rgb(255, 255, 255);
   box-shadow: 0 2px 16px -2px rgba(0, 0, 0, 0.1);
   padding: 0.1em 0.2em;
@@ -172,4 +175,310 @@ iframe {
 .video-explanation {
   margin-top: 0;
   margin-left: 1em;
+}
+
+.controls-container {
+  position: relative;
+}
+
+/* .control-info {
+  position: absolute;
+} */
+
+.controls-container h3 {
+  margin: 0;
+  font-size: 1em;
+  margin-bottom: 0.5em;
+}
+.controls-container ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 1.1;
+  /* padding-left: 1em; */
+}
+
+.controls-container li {
+  margin-bottom: 0.5em;
+}
+
+.controls-section {
+  display: flex;
+  align-items: flex-end;
+  margin: 1.3em -5em 2em;
+  gap: 0.5em;
+}
+.controls-section-lower {
+  align-items: flex-start;
+}
+
+.controls-container code {
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 0em 0.2em;
+  border-radius: 4px;
+}
+
+.control-info-text {
+  border-radius: 6px;
+  background: white;
+  padding: 1em;
+  font-size: 16px;
+  position: relative;
+  z-index: 2;
+  border-bottom: 4px solid;
+  box-shadow: 0 4px 50px -10px rgba(0, 0, 0, 0.15);
+}
+
+.controls-section-lower .control-info-text {
+  border-bottom: none;
+  border-top: 4px solid;
+}
+
+/* Text boxes ================ */
+.control-info-text-1 {
+  max-width: 220px;
+  min-width: 140px;
+
+  border-color: blue !important;
+}
+.control-info-text-2 {
+  max-width: 300px;
+  min-width: 200px;
+  border-color: red;
+}
+.control-info-text-3 {
+  max-width: 250px;
+  min-width: 240px;
+  border-color: orange !important;
+}
+
+.control-info-text-4 {
+  max-width: 220px;
+  border-color: pink !important;
+}
+.control-info-text-5 {
+  max-width: 180px;
+  border-color: cyan !important;
+}
+.control-info-text-6 {
+  max-width: 180px;
+  border-color: blueviolet !important;
+}
+.control-info-text-8 {
+  max-width: 180px;
+  border-color: violet !important;
+}
+.control-info-text-9 {
+  max-width: 170px;
+  border-color: skyblue !important;
+}
+.control-info-text-10 {
+  max-width: 300px;
+  border-color: goldenrod !important;
+}
+
+/* Overlay boxes */
+.control-box {
+  position: absolute;
+  border: 3px solid;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+.control-box:after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: calc(50% - 2px);
+  transform: rotate(180deg);
+  transform-origin: top;
+  width: 4px;
+  height: 5em;
+  z-index: 1;
+}
+.control-box.lower:after {
+  bottom: 0px;
+  top: unset;
+  transform-origin: bottom;
+}
+.control-box-1 {
+  top: 11%;
+  left: 1%;
+  width: 7%;
+  height: 84%;
+  border-color: blue;
+}
+.control-box-2 {
+  top: 11%;
+  left: 9%;
+  width: 24.4%;
+  height: 84%;
+  border-color: red;
+}
+.control-box-3 {
+  top: 11%;
+  left: 34%;
+  width: 6.4%;
+  height: 61%;
+  border-color: orange;
+}
+.control-box-4 {
+  top: 11%;
+  left: 41.3%;
+  width: 11%;
+  height: 61%;
+  border-color: pink;
+}
+.control-box-5 {
+  top: 74%;
+  left: 34%;
+  width: 65%;
+  height: 21%;
+  border-color: skyblue;
+}
+.control-box-6 {
+  top: 68%;
+  left: 60.8%;
+  width: 3%;
+  height: 29%;
+  border-color: cyan;
+}
+.control-box-7 {
+  top: 11%;
+  left: 53%;
+  width: 28%;
+  height: 25%;
+  border-color: blueviolet;
+}
+.control-box-8 {
+  top: 40%;
+  left: 53%;
+  width: 28%;
+  height: 25%;
+  border-color: violet;
+}
+.control-box-9 {
+  top: 29%;
+  left: 82%;
+  width: 17%;
+  height: 40%;
+  border-color: goldenrod;
+}
+
+/* Connecting Lines============== */
+.control-box-1:after {
+  background: blue;
+}
+
+.control-box-2:after {
+  left: 20%;
+  background: red;
+}
+.control-box-3:after {
+  background: orange;
+}
+.control-box-4:after {
+  background: pink;
+}
+.control-box-5:after {
+  background: skyblue;
+  right: 3%;
+  left: unset;
+}
+.control-box-6:after {
+  background: cyan;
+}
+.control-box-7:after {
+  background: blueviolet;
+}
+.control-box-8:after {
+  background: violet;
+  left: unset;
+  right: 20%;
+  height: 8em;
+}
+.control-box-9:after {
+  background: goldenrod;
+  height: 8em;
+}
+
+/* dark mode */
+/* 
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
+    background: rgb(44, 33, 39);
+    color: rgb(238, 233, 237);
+  }
+
+  a {
+    color: #f0f;
+  }
+
+  a:hover {
+    background: #f0f4;
+  }
+
+  .control-info-text {
+    background: rgb(56, 45, 51);
+    color: rgb(238, 233, 237);
+  }
+
+  code {
+    background: rgb(25, 21, 23) !important;
+    color: rgb(238, 233, 237) !important;
+  }
+} */
+
+@media (max-width: 800px) {
+  main {
+    flex-direction: column;
+    padding: 2em 1em;
+    max-width: 100%;
+  }
+  main > div {
+    min-width: none;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+  .main-content {
+    padding: 0 1em;
+  }
+
+  .controls-section {
+    margin: 1em 0;
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+
+  .control-info-text-1 {
+    flex: 1;
+    max-width: none;
+  }
+  .control-info-text-2 {
+    flex: 1;
+    max-width: none;
+  }
+  .control-info-text-3 {
+    flex: 1;
+    max-width: none;
+  }
+
+  .control-info-text-10 {
+    flex: 1;
+    max-width: none;
+  }
+
+  .control-box:after {
+    display: none;
+  }
+
+  .toc {
+    display: none;
+  }
 }
