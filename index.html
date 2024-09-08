@@ -8,6 +8,17 @@
       src="https://plausible.io/js/plausible.js"
     ></script>
     <title>Constellation: User Guide</title>
+    <meta
+      name="description"
+      content="User guide for the Constellation plugin by Elias Jarzombek"
+    />
+    <meta
+      name="keywords"
+      content="ableton, max for live, midi, sequencer, arpeggiator, music production, music theory"
+    />
+    <meta name="author" content="Elias Jarzombek" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <meta charset="utf-8" />
   </head>
 
@@ -105,7 +116,7 @@
           </div>
 
           <h2 id="installation">Installation</h2>
-          <div class="flex" style="gap: 1em">
+          <div class="flex">
             <div style="min-width: 200px">
               <figure style="margin-top: 0">
                 <div>
@@ -116,16 +127,22 @@
                 </figcaption>
               </figure>
             </div>
-            <p style="margin-top: 0; padding-right: 2em">
-              To get started, drag the
-              <code>Constellation.amxd</code> file into Ableton Live. Ideally
-              you will also want to save it to your
-              <strong>User Library</strong>. To do this right click on "User
-              Library" in the Ableton sidebar and select "Show in
-              Finder/Explorer". If you don't already have a folder there for Max
-              Devices, you can create one and place
-              <code>Constellation.amxd</code> inside.
-            </p>
+            <div>
+              <p>
+                To get started, drag the
+                <code>Constellation.amxd</code> file into Ableton Live. Ideally
+                you will also want to save it to your
+                <strong>User Library</strong>. To do this right click on "User
+                Library" in the Ableton sidebar and select "Show in
+                Finder/Explorer". If you don't already have a folder there for
+                Max Devices, you can create one and place
+                <code>Constellation.amxd</code> inside.
+              </p>
+              <p>
+                Constellation requires Ableton Live 10 or later, and Max for
+                Live 8.2.2 or later.
+              </p>
+            </div>
           </div>
           <!-- <h2 id="demo">Demo</h2>
         <p>
@@ -143,199 +160,268 @@
         ></iframe> -->
 
           <h2 id="controls">Controls</h2>
-          <div class="controls-container">
-            <div class="controls-section controls-section-upper">
-              <div class="control-info-text control-info-text-2">
-                <h3>Editor</h3>
-                <ul>
-                  <li>
-                    <code>Click</code> on a midpoint to create a new point.
-                  </li>
-                  <li><code>Click</code> a point to delete it.</li>
-                  <li>
-                    <code>CMD + Drag</code> a point (up/down) to change that
-                    note's velocity.
-                  </li>
-                </ul>
+          <div class="controls-scroll-wrapper">
+            <div class="controls-container">
+              <div class="controls-section controls-section-upper">
+                <div class="control-info-text control-info-text-editor">
+                  <h3>Editor</h3>
+                  <ul>
+                    <li>
+                      <code>Click</code> on a midpoint to create a new point.
+                    </li>
+                    <li><code>Click</code> a point to delete it.</li>
+                    <li>
+                      <code>CMD + Drag</code> a point (up/down) to change that
+                      note's velocity.
+                    </li>
+                  </ul>
+                </div>
+                <div class="control-info-text control-info-text-loop">
+                  <h3>Loop Length</h3>
+                  <ul>
+                    <li>
+                      With <strong>Sync on</strong>, one loop of the shape will
+                      last for the selected number of bars
+                    </li>
+                    <li>
+                      With <strong>Sync off</strong>, you can adjust how fast
+                      the shape loops independent of the tempo.
+                      <em
+                        >This means that larger shapes will take longer to
+                        loop.</em
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="control-info-text control-info-text-output-mode">
+                  <h3>Output Mode</h3>
+                  <ul>
+                    <li>
+                      <strong>Rhythm</strong> outputs a single note (useful from
+                      drums)
+                    </li>
+                    <li><strong>Melody</strong> outputs a melodic sequence</li>
+                  </ul>
+                </div>
+                <div class="control-info-text control-info-text-midi">
+                  <h3>MIDI</h3>
+                  <ul>
+                    <li>
+                      <strong>Export MIDI</strong> will save the current
+                      sequence to a new clip in
+                      <em>Session View</em>
+                    </li>
+                    <li>
+                      With <strong>MIDI THRU off</strong>, incoming MIDI WILL
+                      control the sequence starting note. This means that you
+                      can stack Constellation plugins in series and have the
+                      first one control the second.
+                    </li>
+                    <li>
+                      With <strong>MIDI THRU on</strong>, incoming MIDI will NOT
+                      control the starting note, so you can jam over the top of
+                      the loop. This also means that two Constellation plugins
+                      on the same track can play in parallel.
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <div class="control-info-text control-info-text-4">
-                <h3>Loop Length</h3>
-                <ul>
-                  <li>
-                    With <strong>Sync on</strong>, one loop of the shape will
-                    last for the selected number of bars
-                  </li>
-                  <li>
-                    With <strong>Sync off</strong>, you can adjust how fast the
-                    shape loops independent of the tempo.
-                    <em
-                      >This means that larger shapes will take longer to
-                      loop.</em
-                    >
-                  </li>
-                </ul>
-              </div>
-              <div class="control-info-text control-info-text-6">
-                <h3>Output Mode</h3>
-                <ul>
-                  <li>
-                    <strong>Rhythm</strong> outputs a single note (useful from
-                    drums)
-                  </li>
-                  <li><strong>Melody</strong> outputs a melodic sequence</li>
-                </ul>
-              </div>
-              <div class="control-info-text control-info-text-10">
-                <h3>MIDI</h3>
-                <ul>
-                  <li>
-                    <strong>Export MIDI</strong> will save the current sequence
-                    to a new clip in
-                    <em>Session View</em>
-                  </li>
-                  <li>
-                    With <strong>MIDI THRU off</strong>, incoming MIDI WILL
-                    control the sequence starting note. This means that you can
-                    stack Constellation plugins in series and have the first one
-                    control the second.
-                  </li>
-                  <li>
-                    With <strong>MIDI THRU on</strong>, incoming MIDI will NOT
-                    control the starting note, so you can jam over the top of
-                    the loop. This also means that two Constellation plugins on
-                    the same track can play in parallel.
-                  </li>
-                </ul>
-              </div>
-            </div>
 
-            <div style="position: relative">
-              <div class="control-box control-box-1 lower"></div>
-              <div class="control-box control-box-2"></div>
-              <div class="control-box control-box-3 lower"></div>
-              <div class="control-box control-box-4"></div>
-              <div class="control-box control-box-5 lower"></div>
-              <div class="control-box control-box-6 lower"></div>
-              <div class="control-box control-box-7"></div>
-              <div class="control-box control-box-8 lower"></div>
-              <div class="control-box control-box-9"></div>
-              <div class="control-box control-box-10 lower"></div>
+              <div style="position: relative">
+                <div class="control-box control-box-editor"></div>
+                <div class="control-box control-box-loop"></div>
+                <div class="control-box control-box-output-mode"></div>
+                <div class="control-box control-box-midi"></div>
+                <div class="control-box control-box-"></div>
 
-              <img src="img/constellation-sections-2.png" />
-            </div>
+                <div class="control-box lower control-box-saved-shapes"></div>
+                <div class="control-box lower control-box-editor-tools"></div>
+                <div class="control-box lower control-box-starting-note"></div>
+                <div class="control-box lower control-box-scale"></div>
+                <div class="control-box lower control-box-keyboard"></div>
 
-            <div class="controls-section controls-section-lower">
-              <div class="control-info-text control-info-text-1">
-                <h3>Saved Shapes</h3>
-                <ul>
-                  <li>
-                    <code>Click</code> on one of the empty slots to save the
-                    current shape
-                  </li>
-                  <li><code>Click</code> again to recall that shape</li>
-                  <li><code>CMD + Click</code> to remove a saved shape</li>
-                </ul>
+                <img src="img/constellation-sections-2.png" />
               </div>
-              <div class="control-info-text control-info-text-3">
-                <h3>Editor Tools</h3>
-                <ul>
-                  <li>
-                    <strong>Grid</strong> enables snapping to a grid, which is
-                    useful for creating quantized rhythms
-                  </li>
-                  <li><strong>Randomize</strong> generates a random shape</li>
-                  <li>
-                    <strong>Note Duration</strong> adjusts the note duration for
-                    all notes in the sequence
-                  </li>
-                  <li>
-                    <strong>Playback direction</strong> changes the direction of
-                    playback. This will recalculate the notes based on the new
-                    angles.
-                    <!-- (instead of simply playing the notes in opposite order) -->
-                  </li>
-                  <li><strong>Reset</strong> clears all but two points</li>
-                </ul>
-              </div>
-              <div class="control-info-text control-info-text-5">
-                <h3>Starting Note</h3>
-                <ul>
-                  <li>
-                    Indicates which note the sequence starts on.
-                    <code>Click</code> on the keyboard or use MIDI input to set
-                    this note.
-                  </li>
-                </ul>
-              </div>
-              <div class="control-info-text control-info-text-8">
-                <h3>Scale</h3>
-                <ul>
-                  <li>Use the dropdowns to select key and mode</li>
-                  <li>
-                    The <code>♭♯</code> toggle will sync the device to the
-                    global Ableton scale (Live 12 only)
-                  </li>
-                  <li>
-                    Selecting <strong>Chromatic</strong> will make all notes
-                    available
-                  </li>
-                </ul>
-              </div>
-              <div class="control-info-text control-info-text-9">
-                <h3>Keyboard</h3>
-                <ul>
-                  <li>
-                    Displays the output MIDI. <code>Click</code> on the keyboard
-                    to set the starting note.
-                  </li>
-                </ul>
+
+              <div class="controls-section controls-section-lower">
+                <div class="control-info-text control-info-text-saved-shapes">
+                  <h3>Saved Shapes</h3>
+                  <ul>
+                    <li>
+                      <code>Click</code> on one of the empty slots to save the
+                      current shape
+                    </li>
+                    <li><code>Click</code> again to recall that shape</li>
+                    <li><code>CMD + Click</code> to remove a saved shape</li>
+                  </ul>
+                </div>
+
+                <div class="control-info-text control-info-text-editor-tools">
+                  <h3>Editor Tools</h3>
+                  <ul>
+                    <li>
+                      <strong>Grid</strong> enables snapping to a grid, which is
+                      useful for creating quantized rhythms
+                    </li>
+                    <li><strong>Randomize</strong> generates a random shape</li>
+                    <li>
+                      <strong>Note Duration</strong> adjusts the note duration
+                      for all notes in the sequence
+                    </li>
+                    <li>
+                      <strong>Playback direction</strong> changes the direction
+                      of playback. This will recalculate the notes based on the
+                      new angles.
+                      <!-- (instead of simply playing the notes in opposite order) -->
+                    </li>
+                    <li><strong>Reset</strong> clears all but two points</li>
+                  </ul>
+                </div>
+
+                <div class="control-info-text control-info-text-starting-note">
+                  <h3>Starting Note</h3>
+                  <ul>
+                    <li>
+                      Indicates which note the sequence starts on.
+                      <code>Click</code> on the keyboard or use MIDI input to
+                      set this note.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="control-info-text control-info-text-scale">
+                  <h3>Scale</h3>
+                  <ul>
+                    <li>Use the dropdowns to select key and mode</li>
+                    <li>
+                      The <code>♭♯</code> toggle will sync the device to the
+                      global Ableton scale (Live 12 only)
+                    </li>
+                    <li>
+                      Selecting <strong>Chromatic</strong> will make all notes
+                      available
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="control-info-text control-info-text-keyboard">
+                  <h3>Keyboard</h3>
+                  <ul>
+                    <li>
+                      Displays the output MIDI. <code>Click</code> on the
+                      keyboard to set the starting note.
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
           <h2 id="techniques">Techniques</h2>
-          <h3>Incremental changes</h3>
+
+          <div class="flex">
+            <div>
+              <figure style="margin: 0">
+                <video
+                  controls
+                  style="max-width: 320px; border-radius: 18px"
+                  src="video/Constellation_Technique_incremental_changes_square.mp4"
+                ></video>
+                <figcaption>
+                  <em>Incremental changes to the shape</em>
+                </figcaption>
+              </figure>
+            </div>
+            <div>
+              <h3>Incremental changes</h3>
+              <p>
+                To create a sequence that evolve over time, try making small
+                changes to the shape. Since the angles control the musical
+                intervals, even small adjustments can have a big impact on the
+                sound.
+              </p>
+            </div>
+          </div>
           <h3>Multiple in series</h3>
+          <figure>
+            <video
+              controls
+              style="max-width: 100%; border-radius: 18px"
+              src="video/Constellation_Technique_Series.mp4"
+            ></video>
+            <figcaption>
+              <em
+                >Stack devices to chain MIDI: the output of the left controls
+                the right.</em
+              >
+            </figcaption>
+          </figure>
+          <p>
+            By stacking multiple Constellation devices in series, you can create
+            complex sequences. The output of the first device will control the
+            starting note of the second device. This allows you to create
+            evolving sequences that change over time.
+          </p>
           <h3>Multiple in parallel</h3>
-          <h3>Drums</h3>
+          <figure>
+            <video
+              controls
+              style="max-width: 100%; border-radius: 18px"
+              src="video/Constellation_Technique_Parallel.mp4"
+            ></video>
+            <figcaption>
+              <em
+                >Stack devices to play in parallel using MIDI THRU: Kick, snare,
+                and percussion from left to right</em
+              >
+            </figcaption>
+          </figure>
+          <p>
+            With MIDI THRU on, the devices will play in parallel, allowing you
+            to create drum patterns or complex harmonies. In the above video,
+            three devices are playing in parallel to create a drum pattern. They
+            are each set to Rhythm mode, meaning that they each output a single
+            note.
+          </p>
         </div>
       </div>
-      <!-- <div class="spacer" style="width: 160px; min-width: none"></div> -->
     </main>
 
     <script>
-      // window.onload = function () {
-      //   const boxes = document.querySelectorAll(".control-box");
-      //   /* Hide all other boxes and correspoding info-text boxes when one is hovered */
-      //   boxes.forEach((box) => {
-      //     box.addEventListener("mouseover", () => {
-      //       const classNameWithNumber = box.classList[1];
-      //       const infoText = document.querySelector(
-      //         `.control-info-text-${classNameWithNumber.split("-")[2]}`
-      //       );
-      //       const allInfoTexts =
-      //         document.querySelectorAll(".control-info-text");
-      //       allInfoTexts.forEach((t) => {
-      //         t.style.opacity = 0;
-      //       });
-      //       infoText.style.opacity = 1;
-      //       boxes.forEach((b) => {
-      //         if (b !== box) {
-      //           b.style.opacity = 0.2;
-      //         }
-      //       });
-      //     });
-      //     box.addEventListener("mouseout", () => {
-      //       boxes.forEach((b) => {
-      //         b.style.opacity = 1;
-      //       });
-      //       const allInfoTexts =
-      //         document.querySelectorAll(".control-info-text");
-      //       allInfoTexts.forEach((t) => {
-      //         t.style.opacity = 1;
-      //       });
-      //     });
-      //   });
-      // };
+      window.onload = function () {
+        const boxes = document.querySelectorAll(".control-box");
+        /* Hide all other boxes and corresponding info-text boxes when one is hovered */
+        boxes.forEach((box) => {
+          box.addEventListener("mouseover", () => {
+            const className = box.classList.value.split("control-box-")[1];
+            const infoText = document.querySelector(
+              `.control-info-text-${className}`
+            );
+            const allInfoTexts =
+              document.querySelectorAll(".control-info-text");
+            allInfoTexts.forEach((t) => {
+              t.style.opacity = 0.4;
+            });
+            infoText.style.opacity = 1;
+            boxes.forEach((b) => {
+              b.classList.remove("less-opaque");
+              if (b !== box) {
+                b.classList.add("less-opaque");
+              }
+            });
+          });
+
+          box.addEventListener("mouseout", () => {
+            boxes.forEach((b) => {
+              b.classList.remove("less-opaque");
+            });
+            const allInfoTexts =
+              document.querySelectorAll(".control-info-text");
+            allInfoTexts.forEach((t) => {
+              t.style.opacity = 1;
+            });
+          });
+        });
+      };
     </script>
   </body>
 </html>
