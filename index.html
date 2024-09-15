@@ -39,7 +39,7 @@
             <div>
               <h1>Constellation: User Guide</h1>
               <p>
-                This page details how to use the Constellation plugin by
+                This page explains how to use the Constellation plugin by
                 <a target="blank" href="https://eliasjarzombek.com"
                   >Elias Jarzombek</a
                 >
@@ -180,12 +180,12 @@
                   <h3>Loop Length</h3>
                   <ul>
                     <li>
-                      With <strong>Sync on</strong>, one loop of the shape will
-                      last for the selected number of bars
+                      <strong>Sync on</strong>: one loop of the shape will last
+                      for the selected number of bars
                     </li>
                     <li>
-                      With <strong>Sync off</strong>, you can adjust how fast
-                      the shape loops independent of the tempo.
+                      <strong>Sync off</strong>: adjust how fast the shape loops
+                      independent of the tempo.
                       <em
                         >This means that larger shapes will take longer to
                         loop.</em
@@ -265,8 +265,8 @@
                     </li>
                     <li><strong>Randomize</strong> generates a random shape</li>
                     <li>
-                      <strong>Note Duration</strong> adjusts the note duration
-                      for all notes in the sequence
+                      <strong>Note duration</strong> adjusts the length of all
+                      notes in the sequence
                     </li>
                     <li>
                       <strong>Playback direction</strong> changes the direction
@@ -320,18 +320,6 @@
 
           <div class="flex">
             <div>
-              <figure style="margin: 0">
-                <video
-                  controls
-                  style="max-width: 320px; border-radius: 18px"
-                  src="video/Constellation_Technique_incremental_changes_square.mp4"
-                ></video>
-                <figcaption>
-                  <em>Incremental changes to the shape</em>
-                </figcaption>
-              </figure>
-            </div>
-            <div>
               <h3>Incremental changes</h3>
               <p>
                 To create a sequence that evolve over time, try making small
@@ -340,12 +328,24 @@
                 sound.
               </p>
             </div>
+            <div>
+              <figure style="margin: 0">
+                <video
+                  controls
+                  style="max-width: 320px"
+                  src="video/Constellation_Technique_incremental_changes_square.mp4"
+                ></video>
+                <figcaption>
+                  <em>Incremental changes to the shape</em>
+                </figcaption>
+              </figure>
+            </div>
           </div>
           <h3>Multiple in series</h3>
           <figure>
             <video
               controls
-              style="max-width: 100%; border-radius: 18px"
+              style="max-width: 100%"
               src="video/Constellation_Technique_Series.mp4"
             ></video>
             <figcaption>
@@ -365,7 +365,7 @@
           <figure>
             <video
               controls
-              style="max-width: 100%; border-radius: 18px"
+              style="max-width: 100%"
               src="video/Constellation_Technique_Parallel.mp4"
             ></video>
             <figcaption>
@@ -376,11 +376,11 @@
             </figcaption>
           </figure>
           <p>
-            With MIDI THRU on, the devices will play in parallel, allowing you
-            to create drum patterns or complex harmonies. In the above video,
-            three devices are playing in parallel to create a drum pattern. They
-            are each set to Rhythm mode, meaning that they each output a single
-            note.
+            With <b>MIDI THRU</b> on, the devices will play in parallel,
+            allowing you to create drum patterns or complex harmonies. In the
+            above video, three devices are playing in parallel to create a drum
+            pattern. They are each set to Rhythm mode, meaning that they each
+            output a single note.
           </p>
         </div>
       </div>
@@ -389,6 +389,8 @@
     <script>
       window.onload = function () {
         const boxes = document.querySelectorAll(".control-box");
+        const infoBoxes = document.querySelectorAll(".control-info-text");
+
         /* Hide all other boxes and corresponding info-text boxes when one is hovered */
         boxes.forEach((box) => {
           box.addEventListener("mouseover", () => {
@@ -399,9 +401,11 @@
             const allInfoTexts =
               document.querySelectorAll(".control-info-text");
             allInfoTexts.forEach((t) => {
-              t.style.opacity = 0.4;
+              t.style.opacity = 0.1;
+              t.style.filter = "blur(2px)";
             });
             infoText.style.opacity = 1;
+            infoText.style.filter = "blur(0px)";
             boxes.forEach((b) => {
               b.classList.remove("less-opaque");
               if (b !== box) {
@@ -418,6 +422,7 @@
               document.querySelectorAll(".control-info-text");
             allInfoTexts.forEach((t) => {
               t.style.opacity = 1;
+              t.style.filter = "blur(0px)";
             });
           });
         });
